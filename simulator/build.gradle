@@ -1,0 +1,26 @@
+plugins {
+    id 'application'
+}
+
+group 'org.adripc64.guidesmiths.challenges.martianrobots'
+version '0.0.1-SNAPSHOT'
+
+sourceCompatibility = '11'
+
+application {
+    mainClass = 'org.adripc64.guidesmiths.challenges.martianrobots.simulator.MartianRobotsSimulator'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':domain')
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+run {
+    standardInput = System.in
+}

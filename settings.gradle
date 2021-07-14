@@ -1,2 +1,3 @@
 rootProject.name = 'martian-robots'
 include 'domain'
+include 'simulator'
