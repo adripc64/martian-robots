@@ -1,0 +1,30 @@
+plugins {
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+group 'org.adripc64.guidesmiths.challenges.martianrobots'
+version '0.0.1-SNAPSHOT'
+
+sourceCompatibility = '11'
+
+// Required by the 'shadowJar' task
+project.setProperty("mainClassName", "org.adripc64.guidesmiths.challenges.martianrobots.simulator.MartianRobotsSimulator")
+
+application {
+    mainClass = 'org.adripc64.guidesmiths.challenges.martianrobots.simulator.MartianRobotsSimulator'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':domain')
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+run {
+    standardInput = System.in
+}
