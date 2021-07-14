@@ -1,5 +1,6 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
 }
 
 group 'org.adripc64.guidesmiths.challenges.martianrobots'
@@ -27,4 +28,28 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testImplementation "org.mockito:mockito-core:3.+"
     
+}
+
+publishing {
+
+    publications {
+        maven(MavenPublication) {
+            groupId = 'org.adripc64.guidesmiths.challenges.martianrobots'
+            artifactId = 'martian-robots-domain'
+            version = "${version}"
+
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/adripc64/martian-robots"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }
