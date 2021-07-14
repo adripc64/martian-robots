@@ -1,0 +1,26 @@
+package org.adripc64.guidesmiths.challenges.martianrobots.infrastructure.persistence.config;
+
+import org.adripc64.guidesmiths.challenges.martianrobots.domain.repository.PlanetRepository;
+import org.adripc64.guidesmiths.challenges.martianrobots.infrastructure.InfrastructureConfig;
+import org.adripc64.guidesmiths.challenges.martianrobots.infrastructure.persistence.jpa.JpaPlanetRepository;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@SpringBootTest(classes = InfrastructureConfig.class, properties = "martian.robots.persistence.implementation=jpa")
+class JpaPersistenceConfigurationTest {
+
+    @Autowired
+    private ApplicationContext context;
+
+    @Test
+    public void testCorrectPersistenceImplementationLoaded() {
+        JpaPersistenceConfiguration persistenceConfiguration = context.getBean(JpaPersistenceConfiguration.class);
+        PlanetRepository planetRepository = context.getBean(PlanetRepository.class);
+        assertEquals(JpaPlanetRepository.class, planetRepository.getClass());
+    }
+
+}
