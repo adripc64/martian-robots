@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'org.adripc64.guidesmiths.challenges.martianrobots'
-version '0.0.1-SNAPSHOT'
+version "${version}"
 
 sourceCompatibility = '11'
 
