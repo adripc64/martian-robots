@@ -8,12 +8,57 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
           java-version: '11'
           distribution: 'adopt'
+
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
+
       - name: Build with Gradle
         run: ./gradlew build
+
+      - name: Archive domain artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: domain-artifacts
+          path: domain/build/libs
+
+      - name: Archive domain tests report
+        uses: actions/upload-artifact@v2
+        with:
+          name: domain-tests-report
+          path: domain/build/reports/tests/test
+
+      - name: Archive simulator artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: simulator-artifacts
+          path: simulator/build/libs
+
+      - name: Archive simulator tests report
+        uses: actions/upload-artifact@v2
+        with:
+          name: simulator-tests-report
+          path: simulator/build/reports/tests/test
+
+      - name: Archive infrastructure artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: infrastructure-artifacts
+          path: infrastructure/build/libs
+
+      - name: Archive infrastructure tests report
+        uses: actions/upload-artifact@v2
+        with:
+          name: infrastructure-tests-report
+          path: infrastructure/build/reports/tests/test
+
+      - name: Archive application artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: application-artifacts
+          path: application/build/libs
