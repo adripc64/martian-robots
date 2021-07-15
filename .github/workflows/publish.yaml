@@ -20,4 +20,4 @@ jobs:
         run: ./gradlew publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_VERSION: ${{ env.GITHUB_REF }}
+          PUBLISH_VERSION: ${{ github.event.release.tag_name }}
