@@ -33,7 +33,7 @@ dependencies {
 publishing {
 
     publications {
-        maven(MavenPublication) {
+        domainJar(MavenPublication) {
             groupId = 'org.adripc64.guidesmiths.challenges.martianrobots'
             artifactId = 'martian-robots-domain'
             version = "${version}"
