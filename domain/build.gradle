@@ -36,7 +36,7 @@ publishing {
         domainJar(MavenPublication) {
             groupId = 'org.adripc64.guidesmiths.challenges.martianrobots'
             artifactId = 'martian-robots-domain'
-            version = "${version}"
+            version = System.getenv("PUBLISH_VERSION")
 
             from components.java
         }

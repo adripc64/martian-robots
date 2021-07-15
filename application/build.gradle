@@ -48,6 +48,10 @@ publishing {
 
     publications {
         applicationBootJar(MavenPublication) {
+            groupId = 'org.adripc64.guidesmiths.challenges.martianrobots'
+            artifactId = 'martian-robots-application'
+            version = System.getenv("PUBLISH_VERSION")
+            
             artifact bootJar
         }
     }

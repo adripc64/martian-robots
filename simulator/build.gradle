@@ -31,10 +31,14 @@ run {
 }
 
 publishing {
-    
+
     publications {
-        simulatorShadowJar(MavenPublication) { publication ->
+        simulatorShadowJar(MavenPublication) { publication -> 
             project.shadow.component(publication)
+
+            groupId = 'org.adripc64.guidesmiths.challenges.martianrobots'
+            artifactId = 'martian-robots-simulator'
+            version = System.getenv("PUBLISH_VERSION")
         }
     }
 
