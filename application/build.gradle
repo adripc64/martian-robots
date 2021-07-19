@@ -67,3 +67,14 @@ publishing {
         }
     }
 }
+
+bootBuildImage {
+    imageName = "ghcr.io/adripc64/martian-robots-application:${System.getenv("PUBLISH_VERSION") ? System.getenv("PUBLISH_VERSION") : project.version}"
+    docker {
+        publishRegistry {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
+            url = "https://ghcr.io/adripc64"
+        }
+    }
+}
