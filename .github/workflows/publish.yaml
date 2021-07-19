@@ -30,3 +30,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_VERSION: ${{ github.event.release.tag_name }}
+
+      - name: Publish docker image
+        run: ./gradlew bootBuildImage --publishImage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_VERSION: latest
