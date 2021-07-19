@@ -4,7 +4,9 @@ The Martian Robots Application is a Spring Boot application exposing a REST API 
 
 ## Overview
 
-The REST API is documented using OpenApi. The documentation is served by SwaggerUI when the application is running:
+The REST API is documented using OpenApi.
+
+The documentation is served by SwaggerUI when the application is running:
 
 ```
 http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config
@@ -29,7 +31,7 @@ https://github.com/adripc64/martian-robots/pkgs/container/martian-robots-applica
 You can run the application with Docker like:
 
 ```
-docker run -d -p 8080:8080 ghcr.io/adripc64/martian-robots-application:1.0.0
+docker run -d -p 8080:8080 ghcr.io/adripc64/martian-robots-application:latest
 ```
 
 ### Docker Compose

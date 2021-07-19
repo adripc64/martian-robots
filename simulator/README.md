@@ -53,7 +53,7 @@ java -jar simulator/build/libs/simulator-{version}-all.jar < input.txt
 **Example:**
 
 ``` 
-java -jar simulator/build/libs/simulator-0.0.2-all.jar < input.txt 
+java -jar simulator/build/libs/simulator-1.0.0-all.jar < input.txt 
 1 1 E
 3 3 N LOST
 2 3 S
