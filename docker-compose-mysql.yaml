@@ -1,0 +1,27 @@
+version: '3.1'
+services:
+  mysql:
+    image: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: secret
+      MYSQL_DATABASE: martian-robots
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+  martian-robots:
+    image: ghcr.io/adripc64/martian-robots-application:0.0.7
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      MARTIAN_ROBOTS_PERSISTENCE_IMPLEMENTATION: jpa
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql/martian-robots
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: secret
