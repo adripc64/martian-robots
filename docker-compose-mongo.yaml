@@ -19,7 +19,7 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: user
       ME_CONFIG_MONGODB_ADMINPASSWORD: secret
   martian-robots:
-    image: ghcr.io/adripc64/martian-robots-application:0.0.7
+    image: ghcr.io/adripc64/martian-robots-application:latest
     restart: always
     ports:
       - 8080:8080
