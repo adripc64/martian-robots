@@ -16,3 +16,15 @@ The root project is a multi-project Gradle build with the following modules:
 
 Please, see each module README for more details.
  
+## FEATURES
+
+The following list highlights some key features of the solution:
+
+* The solution architecture is designed following Domain-Driven Design concepts
+* Unit tests with Junit and Mockito
+* Support for different persistence implementations: in-memory, JPA (H2, MySQL) and MongoDB
+* REST API documented with OpenApi and served with SwaggerUI
+* Docker image created with buildpacks (integrated in Spring Boot Gradle Plugin)
+* Docker Compose files are provided for running the application + database
+* GitHub Actions has been used for CI and CD
+* GitHub Packages has been used to publish artifacts and Docker images
